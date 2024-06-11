@@ -8,24 +8,24 @@ namespace RouteManagement.Controllers
     [ApiController]
     public class ScheduleController : ControllerBase
     {
-        private readonly Neo4jService _neo4jService;
+        private readonly ScheduleService _scheduleService;
 
-        public ScheduleController(Neo4jService neo4jService)
+        public ScheduleController(ScheduleService scheduleService)
         {
-            _neo4jService = neo4jService;
+            _scheduleService = scheduleService;
         }
 
         [HttpGet("byRoute")]
         public async Task<IActionResult> GetSchedulesByRoute(string routeId)
         {
-            var schedules = await _neo4jService.GetSchedulesByRouteAsync(routeId);
+            var schedules = await _scheduleService.GetSchedulesByRouteAsync(routeId);
             return Ok(schedules);
         }
 
         [HttpGet("byDriver")]
         public async Task<IActionResult> GetSchedulesByDriver(string driverId)
         {
-            var schedules = await _neo4jService.GetSchedulesByDriverAsync(driverId);
+            var schedules = await _scheduleService.GetSchedulesByDriverAsync(driverId);
             return Ok(schedules);
         }
     }

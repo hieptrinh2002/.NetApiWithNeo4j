@@ -30,9 +30,9 @@ namespace RouteManagement.Services
                 {
                     cities.Add(new City
                     {
-                        Id = record["id"].As<int>(),
-                        Name = record["name"].As<string>(),
-                        Region = record["region"].As<string>()
+                        id = record["id"].As<int>(),
+                        name = record["name"].As<string>(),
+                        region = record["region"].As<string>()
                     });
                 });
             }
@@ -53,17 +53,17 @@ namespace RouteManagement.Services
                     MATCH (:City {name: $cityName})-[:HAS_ROUTE]->(r:Route)
                     RETURN r.id AS id, r.name AS name, r.distance AS distance, r.duration AS duration";
 
-        
+
                 var result = await session.RunAsync(query, new { cityName });
                 var te = result.FetchAsync();
                 while (await result.FetchAsync())
                 {
                     routes.Add(new _Route
                     {
-                        Id = result.Current["id"].As<string>(),
-                        Name = result.Current["name"].As<string>(),
-                        Distance = result.Current["distance"].As<int>(),
-                        Duration = result.Current["duration"].As<string>()
+                        id = result.Current["id"].As<string>(),
+                        name = result.Current["name"].As<string>(),
+                        distance = result.Current["distance"].As<int>(),
+                        duration = result.Current["duration"].As<string>()
                     });
                 }
             }
@@ -74,7 +74,7 @@ namespace RouteManagement.Services
             return routes;
         }
 
-        public async Task CreateRelationshipAsync(string startNodeId, string endNodeId, string relationshipType, 
+        public async Task CreateRelationshipAsync(string startNodeId, string endNodeId, string relationshipType,
                                                   Dictionary<string, object>? properties = null)
         {
             var session = _driver.AsyncSession();
@@ -126,10 +126,10 @@ namespace RouteManagement.Services
                 {
                     routes.Add(new _Route
                     {
-                        Id = record["id"].As<string>(),
-                        Name = record["name"].As<string>(),
-                        Distance = record["distance"].As<int>(),
-                        Duration = record["duration"].As<string>()
+                        id = record["id"].As<string>(),
+                        name = record["name"].As<string>(),
+                        distance = record["distance"].As<int>(),
+                        duration = record["duration"].As<string>()
                     });
                 });
             }
@@ -154,9 +154,9 @@ namespace RouteManagement.Services
                 {
                     stops.Add(new Stop
                     {
-                        Id = record["id"].As<string>(),
-                        Name = record["name"].As<string>(),
-                        Location = record["location"].As<string>()
+                        id = record["id"].As<string>(),
+                        name = record["name"].As<string>(),
+                        location = record["location"].As<string>()
                     });
                 });
             }
@@ -181,10 +181,10 @@ namespace RouteManagement.Services
                 {
                     routes.Add(new _Route
                     {
-                        Id = record["id"].As<string>(),
-                        Name = record["name"].As<string>(),
-                        Distance = record["distance"].As<int>(),
-                        Duration = record["duration"].As<string>()
+                        id = record["id"].As<string>(),
+                        name = record["name"].As<string>(),
+                        distance = record["distance"].As<int>(),
+                        duration = record["duration"].As<string>()
                     });
                 });
             }
@@ -209,10 +209,10 @@ namespace RouteManagement.Services
                 {
                     schedules.Add(new Schedule
                     {
-                        Id = record["id"].As<int>(),
-                        DepartureTime = record["departureTime"].As<DateTime>(),
-                        ArrivalTime = record["arrivalTime"].As<DateTime>(),
-                        Status = record["status"].As<string>()
+                        id = record["id"].As<string>(),
+                        departureTime = record["departureTime"].As<string>(),
+                        arrivalTime = record["arrivalTime"].As<string>(),
+                        status = record["status"].As<string>()
                     });
                 });
             }
@@ -237,10 +237,10 @@ namespace RouteManagement.Services
                 {
                     buses.Add(new Bus
                     {
-                        Id = record["id"].As<int>(),
-                        LicensePlate = record["licensePlate"].As<string>(),
-                        Capacity = record["capacity"].As<int>(),
-                        Type = record["type"].As<string>()
+                        id = record["id"].As<int>(),
+                        licensePlate = record["licensePlate"].As<string>(),
+                        capacity = record["capacity"].As<int>(),
+                        type = record["type"].As<string>()
                     });
                 });
             }
@@ -265,10 +265,10 @@ namespace RouteManagement.Services
                 {
                     drivers.Add(new Driver
                     {
-                        Id = record["id"].As<int>(),
-                        Name = record["name"].As<string>(),
-                        LicenseNumber = record["licenseNumber"].As<string>(),
-                        Experience = record["experience"].As<int>()
+                        id = record["id"].As<int>(),
+                        name = record["name"].As<string>(),
+                        licenseNumber = record["licenseNumber"].As<string>(),
+                        experience = record["experience"].As<int>()
                     });
                 });
             }
@@ -293,10 +293,10 @@ namespace RouteManagement.Services
                 {
                     schedules.Add(new Schedule
                     {
-                        Id = record["id"].As<int>(),
-                        DepartureTime = record["departureTime"].As<DateTime>(),
-                        ArrivalTime = record["arrivalTime"].As<DateTime>(),
-                        Status = record["status"].As<string>()
+                        id = record["id"].As<string>(),
+                        departureTime = record["departureTime"].As<string>(),
+                        arrivalTime = record["arrivalTime"].As<string>(),
+                        status = record["status"].As<string>()
                     });
                 });
             }
@@ -321,10 +321,10 @@ namespace RouteManagement.Services
                 {
                     buses.Add(new Bus
                     {
-                        Id = record["id"].As<int>(),
-                        LicensePlate = record["licensePlate"].As<string>(),
-                        Capacity = record["capacity"].As<int>(),
-                        Type = record["type"].As<string>()
+                        id = record["id"].As<int>(),
+                        licensePlate = record["licensePlate"].As<string>(),
+                        capacity = record["capacity"].As<int>(),
+                        type = record["type"].As<string>()
                     });
                 });
             }

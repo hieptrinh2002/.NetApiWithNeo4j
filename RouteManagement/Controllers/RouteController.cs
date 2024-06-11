@@ -4,38 +4,31 @@ using RouteManagement.Services;
 
 namespace RouteManagement.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/route")]
     [ApiController]
     public class RouteController : ControllerBase
     {
-        private readonly Neo4jService _neo4jService;
+        private readonly RouteService _routeService;
 
-        public RouteController(Neo4jService neo4jService)
+        public RouteController(RouteService routeService)
         {
-            _neo4jService = neo4jService;
+            _routeService = routeService;
         }
-        // GET "https://localhost:5001/Route/between?cityA=CityA&cityB=CityB"
 
-        [HttpGet("fromCity")]
+        [HttpGet("from-city")]
         public async Task<IActionResult> GetRoutesFromCity(string cityName)
         {
-            var routes = await _neo4jService.GetRoutesFromCityAsync(cityName);
+            var routes = await _routeService.GetRoutesFromCityAsync(cityName);
             return Ok(routes);
         }
 
-        [HttpGet("betweenCities")]
+        // GET "https://localhost:5001/Route/between?cityA=CityA&cityB=CityB"
+
+        [HttpGet("between-cities")]
         public async Task<IActionResult> GetRoutesBetweenCities(string cityA, string cityB)
         {
-            var routes = await _neo4jService.GetRoutesBetweenCitiesAsync(cityA, cityB);
+            var routes = await _routeService.GetRoutesBetweenCitiesAsync(cityA, cityB);
             return Ok(routes);
         }
-
-        [HttpGet("byOperator")]
-        public async Task<IActionResult> GetRoutesByOperator(string operatorId)
-        {
-            var routes = await _neo4jService.GetRoutesByOperatorAsync(operatorId);
-            return Ok(routes);
-        }
-
     }
 }

@@ -2,8 +2,8 @@
 
 public class Schedule
 {
-    public int Id { get; set; }
-    public DateTime DepartureTime { get; set; }
-    public DateTime ArrivalTime { get; set; }
-    public string Status { get; set; }
+    public string id { get; set; }
+    public string departureTime { get; set; }
+    public string arrivalTime { get; set; }
+    public string status { get; set; }
 }

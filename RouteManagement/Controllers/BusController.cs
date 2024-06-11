@@ -8,24 +8,24 @@ namespace RouteManagement.Controllers
     [ApiController]
     public class BusController : ControllerBase
     {
-        private readonly Neo4jService _neo4jService;
+        private readonly BusService _busService;
 
-        public BusController(Neo4jService neo4jService)
+        public BusController(BusService busService)
         {
-            _neo4jService = neo4jService;
+            _busService = busService;
         }
 
         [HttpGet("bySchedule")]
         public async Task<IActionResult> GetBusesBySchedule(string scheduleId)
         {
-            var buses = await _neo4jService.GetBusesByScheduleAsync(scheduleId);
+            var buses = await _busService.GetBusesByScheduleAsync(scheduleId);
             return Ok(buses);
         }
 
         [HttpGet("byOperator")]
         public async Task<IActionResult> GetBusesByOperator(string operatorId)
         {
-            var buses = await _neo4jService.GetBusesByOperatorAsync(operatorId);
+            var buses = await _busService.GetBusesByOperatorAsync(operatorId);
             return Ok(buses);
         }
     }

@@ -2,8 +2,8 @@
 
 public class BusOperator
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string ContactInfo { get; set; }
-    public double Rating { get; set; }
+    public int id { get; set; }
+    public string name { get; set; }
+    public string contactInfo { get; set; }
+    public double rating { get; set; }
 }

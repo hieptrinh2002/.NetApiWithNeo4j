@@ -8,17 +8,17 @@ namespace RouteManagement.Controllers
     [ApiController]
     public class StopController : ControllerBase
     {
-        private readonly Neo4jService _neo4jService;
+        private readonly StopService _stopService;
 
-        public StopController(Neo4jService neo4jService)
+        public StopController(StopService stopService)
         {
-            _neo4jService = neo4jService;
+            _stopService = stopService;
         }
 
         [HttpGet("onRoute")]
         public async Task<IActionResult> GetStopsOnRoute(string routeId)
         {
-            var stops = await _neo4jService.GetStopsOnRouteAsync(routeId);
+            var stops = await _stopService.GetStopsOnRouteAsync(routeId);
             return Ok(stops);
         }
     }
