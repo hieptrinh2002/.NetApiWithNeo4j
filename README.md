@@ -2,6 +2,7 @@
 
 This project is a RESTful API built with .NET and Neo4j, designed to manage route-related data for a bus transportation system. The system supports managing routes, stops, bus operators, buses, drivers, and schedules with high scalability and complex relationship queries.
 
+![Alternative Text](neo4j.png)
 ## Database Design with Neo4j
 
 ### Neo4j
@@ -27,4 +28,3 @@ This project is a RESTful API built with .NET and Neo4j, designed to manage rout
 ## Implementation Results
 The system is fully implemented, leveraging Neo4j to handle complex relationships and ensure efficient data queries and scalability.
 
-![Alternative Text](neo4j.png)
