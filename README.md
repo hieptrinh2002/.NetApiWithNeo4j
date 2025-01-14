@@ -27,3 +27,4 @@ This project is a RESTful API built with .NET and Neo4j, designed to manage rout
 ## Implementation Results
 The system is fully implemented, leveraging Neo4j to handle complex relationships and ensure efficient data queries and scalability.
 
+![Alternative Text](neo4j.png)
